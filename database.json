@@ -1,0 +1,191 @@
+{
+  "polls": [
+    {
+      "title": "Titulo",
+      "questions": [
+        {
+          "text": "Pregunta 1",
+          "options": [
+            {
+              "text": "a",
+              "id": "2952c247-b88b-45d3-b2d0-7660ef5e0187"
+            },
+            {
+              "text": "b",
+              "id": "31853daf-1eb2-4ced-977e-09491231f49a"
+            }
+          ],
+          "id": "da837776-7887-4125-9419-e4d451429f88"
+        },
+        {
+          "text": "Pregunta 2",
+          "options": [
+            {
+              "text": "1",
+              "id": "04f90aff-33e5-40b9-b79d-247f0a30a17b"
+            },
+            {
+              "text": "2",
+              "id": "896d8786-3fdd-49e8-88c5-655551be200d"
+            }
+          ],
+          "id": "87c4341a-d723-42b6-8c14-984a6ff18f44"
+        }
+      ],
+      "id": "eb33b5ff-5d4a-4c16-a278-fb159cb6f7fa"
+    },
+    {
+      "title": "encuesta 2",
+      "questions": [
+        {
+          "text": "Pregunta 1",
+          "options": [
+            {
+              "text": "a",
+              "id": "e46ec648-8c6a-4f6e-94c0-113604a8c2a4"
+            },
+            {
+              "text": "b",
+              "id": "3d93ba19-d8c5-4f28-8c1e-8de61fb0c6ba"
+            }
+          ],
+          "id": "c2c85222-081f-40af-98ca-b832218d589e"
+        },
+        {
+          "text": "Pregunta 2",
+          "options": [
+            {
+              "text": "1",
+              "id": "77801ae9-71bf-4afa-b4e5-774aa70764ee"
+            },
+            {
+              "text": "2",
+              "id": "d5855c6e-d7be-49db-9536-5d36ad210a5f"
+            }
+          ],
+          "id": "61421571-dc18-4359-a7bb-8823c90b7784"
+        },
+        {
+          "text": "Pregunta 3",
+          "options": [
+            {
+              "text": "b",
+              "id": "c97d6f4c-3e7b-41e2-a022-f88365ebade4"
+            },
+            {
+              "text": "c",
+              "id": "cb374d28-d250-4d6d-be66-f550d920096d"
+            }
+          ],
+          "id": "e754b814-4497-4b96-803f-4183c3e7d73d"
+        }
+      ],
+      "id": "12d24451-c763-4329-ad31-8349e5270086"
+    },
+    {
+      "title": "encuesta 2",
+      "questions": [
+        {
+          "text": "Pregunta 1",
+          "options": [
+            {
+              "text": "a",
+              "id": "9b399ea4-8b92-44cc-bfbd-985b0f2c3ba2"
+            },
+            {
+              "text": "b",
+              "id": "d8a0eae0-94e2-4696-b8fe-c4781f558cac"
+            }
+          ],
+          "id": "0cc2f0b6-e109-4aa4-9e40-6184ead4a92e"
+        }
+      ],
+      "id": "7b809fda-98c7-4c72-a58d-62b04812ee16"
+    },
+    {
+      "title": "encuesta 3",
+      "questions": [
+        {
+          "text": "Pregunta 1",
+          "options": [
+            {
+              "text": "a",
+              "id": "45fa913c-09e0-4abb-956a-51441ecdabe1"
+            },
+            {
+              "text": "b",
+              "id": "fa1a2f17-ebb1-4c8f-8381-1451c81d373b"
+            },
+            {
+              "text": "c",
+              "id": "f11f0dbd-ded4-421e-b8c6-869202f9bbec"
+            }
+          ],
+          "id": "b6794509-6e51-4e7d-9411-baffc0137db3"
+        }
+      ],
+      "id": "e5d6f14d-942f-4c5b-96d1-93c24f1f94be"
+    }
+  ],
+  "responses": [
+    {
+      "pollId": "eb33b5ff-5d4a-4c16-a278-fb159cb6f7fa",
+      "answers": {
+        "da837776-7887-4125-9419-e4d451429f88": "2952c247-b88b-45d3-b2d0-7660ef5e0187",
+        "87c4341a-d723-42b6-8c14-984a6ff18f44": "04f90aff-33e5-40b9-b79d-247f0a30a17b"
+      },
+      "voterIdentifier": "::1",
+      "id": "4e05b38d-7654-41a2-9734-2f42c8a001f1",
+      "createdAt": "2025-11-19T22:59:38.338Z"
+    },
+    {
+      "pollId": "eb33b5ff-5d4a-4c16-a278-fb159cb6f7fa",
+      "answers": {
+        "da837776-7887-4125-9419-e4d451429f88": "31853daf-1eb2-4ced-977e-09491231f49a",
+        "87c4341a-d723-42b6-8c14-984a6ff18f44": "04f90aff-33e5-40b9-b79d-247f0a30a17b"
+      },
+      "voterIdentifier": "::1",
+      "id": "af9ea0a5-e6c8-4869-ab7f-a473e0be4a00",
+      "createdAt": "2025-11-19T22:59:56.662Z"
+    },
+    {
+      "pollId": "eb33b5ff-5d4a-4c16-a278-fb159cb6f7fa",
+      "answers": {
+        "da837776-7887-4125-9419-e4d451429f88": "2952c247-b88b-45d3-b2d0-7660ef5e0187",
+        "87c4341a-d723-42b6-8c14-984a6ff18f44": "04f90aff-33e5-40b9-b79d-247f0a30a17b"
+      },
+      "voterIdentifier": "::1",
+      "id": "d5a8be62-f690-47b1-a0ea-a67038093cb2",
+      "createdAt": "2025-11-19T23:00:32.354Z"
+    },
+    {
+      "pollId": "12d24451-c763-4329-ad31-8349e5270086",
+      "answers": {
+        "c2c85222-081f-40af-98ca-b832218d589e": "3d93ba19-d8c5-4f28-8c1e-8de61fb0c6ba",
+        "61421571-dc18-4359-a7bb-8823c90b7784": "77801ae9-71bf-4afa-b4e5-774aa70764ee",
+        "e754b814-4497-4b96-803f-4183c3e7d73d": "cb374d28-d250-4d6d-be66-f550d920096d"
+      },
+      "voterIdentifier": "::1",
+      "id": "ada8f0e5-ca6c-4a3a-b85b-2ae9460904ca",
+      "createdAt": "2025-11-19T23:02:09.523Z"
+    },
+    {
+      "pollId": "7b809fda-98c7-4c72-a58d-62b04812ee16",
+      "answers": {
+        "0cc2f0b6-e109-4aa4-9e40-6184ead4a92e": "9b399ea4-8b92-44cc-bfbd-985b0f2c3ba2"
+      },
+      "voterIdentifier": "::1",
+      "id": "8bcbe3f8-f741-4e04-94ad-ec0201616a5c",
+      "createdAt": "2025-11-19T23:03:09.635Z"
+    },
+    {
+      "pollId": "e5d6f14d-942f-4c5b-96d1-93c24f1f94be",
+      "answers": {
+        "b6794509-6e51-4e7d-9411-baffc0137db3": "45fa913c-09e0-4abb-956a-51441ecdabe1"
+      },
+      "voterIdentifier": "::1",
+      "id": "7c8ba99c-c117-4b47-818e-856c9c34bae4",
+      "createdAt": "2025-11-19T23:07:19.054Z"
+    }
+  ]
+}
