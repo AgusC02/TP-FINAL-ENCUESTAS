@@ -125,6 +125,50 @@
         }
       ],
       "id": "e5d6f14d-942f-4c5b-96d1-93c24f1f94be"
+    },
+    {
+      "title": "Encuesta33",
+      "questions": [
+        {
+          "text": "Jesus is King",
+          "options": [
+            {
+              "text": "Yes",
+              "id": "1334453c-55bd-463a-b260-5fd5d5a0e92d"
+            },
+            {
+              "text": "Ofc",
+              "id": "1f68bf2a-6dea-4e90-a6db-d12daf9e090c"
+            }
+          ],
+          "id": "6c54fe6d-78dd-45ca-b8ab-ce18ae2c3afd"
+        }
+      ],
+      "id": "e0ec480c-8739-43c4-89cb-97afebea4eb7"
+    },
+    {
+      "title": "PruebaRefresh",
+      "questions": [
+        {
+          "text": "Refresh pantalla?",
+          "options": [
+            {
+              "text": "Si",
+              "id": "7c7fe345-6ff7-4d0e-bc84-643973f95523"
+            },
+            {
+              "text": "NO!",
+              "id": "8e958366-9f9f-4127-b0b2-32bd8bb05a6a"
+            },
+            {
+              "text": "AAAAAAAAAAAAAAAAAA",
+              "id": "3cad8404-d157-4aa6-a472-78dcc58d9052"
+            }
+          ],
+          "id": "e41f9be5-2b3f-4291-a49a-181a08b4d5d1"
+        }
+      ],
+      "id": "688e4b9a-da5b-4068-8368-e7fec6e83017"
     }
   ],
   "responses": [
@@ -186,6 +230,24 @@
       "voterIdentifier": "::1",
       "id": "7c8ba99c-c117-4b47-818e-856c9c34bae4",
       "createdAt": "2025-11-19T23:07:19.054Z"
+    },
+    {
+      "pollId": "e5d6f14d-942f-4c5b-96d1-93c24f1f94be",
+      "answers": {
+        "b6794509-6e51-4e7d-9411-baffc0137db3": "45fa913c-09e0-4abb-956a-51441ecdabe1"
+      },
+      "voterIdentifier": "::1",
+      "id": "c7ae4b4e-b443-4fe7-9e69-53e20c0aaa43",
+      "createdAt": "2025-11-20T03:36:58.689Z"
+    },
+    {
+      "pollId": "e5d6f14d-942f-4c5b-96d1-93c24f1f94be",
+      "answers": {
+        "b6794509-6e51-4e7d-9411-baffc0137db3": "45fa913c-09e0-4abb-956a-51441ecdabe1"
+      },
+      "voterIdentifier": "::1",
+      "id": "ab47c122-d1fa-407d-96e3-62ccc59cd503",
+      "createdAt": "2025-11-20T03:37:02.682Z"
     }
   ]
 }
