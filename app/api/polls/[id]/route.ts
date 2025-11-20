@@ -1,3 +1,5 @@
+// app/api/polls/[id]/route.ts
+//Para obtener una encuesta por ID
 import { NextResponse } from "next/server";
 import { db } from "@/app/lib/database";
 

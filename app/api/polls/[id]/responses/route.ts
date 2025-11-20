@@ -1,3 +1,4 @@
+//
 // Maneja el envio de los votos
 import { NextResponse, NextRequest } from "next/server";
 import { db } from "@/app/lib/database";

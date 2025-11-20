@@ -1,3 +1,4 @@
+// app
 //Para creacion y listado de encuestas
 import { NextResponse } from "next/server";
 import { db } from "@/app/lib/database"; // Importa DB
