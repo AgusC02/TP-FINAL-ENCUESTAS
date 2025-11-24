@@ -1,19 +1,14 @@
 // app/components/PollChart.tsx
 "use client";
 
-import { Bar } from "react-chartjs-2";
-import { Pie } from "react-chartjs-2";
-import { ArcElement } from "chart.js";
 import { useState } from "react";
-
-ChartJS.register(ArcElement);
-
-
+import { Bar, Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend,
@@ -22,74 +17,109 @@ import { useRouter } from "next/navigation";
 import { useGetPollResults } from "@/app/hooks/usePoll";
 import type { PollResults } from "@/app/api/polls/[id]/results/route";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+// Registro de módulos de Chart.js
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+// Defaults globales para mejorar contraste y tamaño
+ChartJS.defaults.color = "#E5E7EB"; // gris muy claro (casi blanco)
+ChartJS.defaults.font.size = 12;
 
 type PollChartProps = {
   pollId: string;
 };
 
+// Paleta fija
+const COLORS = [
+  "#4e79a7",
+  "#f28e2b",
+  "#e15759",
+  "#76b7b2",
+  "#59a14f",
+  "#edc949",
+  "#af7aa1",
+  "#ff9da7",
+  "#9c755f",
+  "#bab0ab",
+  "#003f5c",
+  "#58508d",
+  "#bc5090",
+  "#ff6361",
+  "#ffa600",
+  "#2f4b7c",
+  "#a05195",
+  "#d45087",
+  "#f95d6a",
+  "#ff7c43",
+];
 
-
-// HISTOGRAMA -> Paleta fija de colores con bordes blancos
+// HISTOGRAMA
 function formatChartData(question: PollResults["questions"][0]) {
-  const colors = [
-    "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
-    "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab",
-    "#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600",
-    "#2f4b7c", "#a05195", "#d45087", "#f95d6a", "#ff7c43"
-  ];
-
   return {
-    labels: question.options.map(o => o.optionText),
+    labels: question.options.map(function (o) {
+      return o.optionText;
+    }),
     datasets: [
       {
         label: "Votos",
-        data: question.options.map(o => o.votes),
-        backgroundColor: question.options.map((_, i) => colors[i % colors.length]),
-        borderColor: "#ffffff",
+        data: question.options.map(function (o) {
+          return o.votes;
+        }),
+        backgroundColor: question.options.map(function (_, i) {
+          return COLORS[i % COLORS.length];
+        }),
+        borderColor: "#FFFFFF",
         borderWidth: 1.5,
       },
     ],
   };
 }
 
-// Torta -> Paleta fija de colores con bordes blancos
-
+// TORTA
 function formatPieData(question: PollResults["questions"][0]) {
-  const colors = [
-    "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
-    "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab",
-    "#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600",
-    "#2f4b7c", "#a05195", "#d45087", "#f95d6a", "#ff7c43"
-  ];
-
   return {
-    labels: question.options.map(o => o.optionText),
+    labels: question.options.map(function (o) {
+      return o.optionText;
+    }),
     datasets: [
       {
-        data: question.options.map(o => o.votes),
-        backgroundColor: question.options.map((_, i) => colors[i % colors.length]),
+        data: question.options.map(function (o) {
+          return o.votes;
+        }),
+        backgroundColor: question.options.map(function (_, i) {
+          return COLORS[i % COLORS.length];
+        }),
         borderWidth: 1,
-        borderColor: "#fff",
+        borderColor: "#FFFFFF",
       },
     ],
   };
 }
 
+export default function PollChart(props: PollChartProps) {
+  var pollId = props.pollId;
+  var router = useRouter();
+  var query = useGetPollResults(pollId);
+  var results = query.data;
 
-export default function PollChart({ pollId }: PollChartProps) {
-  const router = useRouter();
-  const { data: results, isLoading, isError } = useGetPollResults(pollId);
+  var chartTypeInitial: "bar" | "pie" = "bar";
+  var _a = useState(chartTypeInitial),
+    chartType = _a[0],
+    setChartType = _a[1];
 
-  // Estado para cambiar entre histograma y torta
-  const [chartType, setChartType] = useState<"bar" | "pie">("bar");
-
-  const shareLink =
+  var shareLink =
     typeof window !== "undefined"
-      ? `${window.location.origin}/polls/${pollId}`
+      ? window.location.origin + "/polls/" + pollId
       : "";
 
-  if (isLoading) {
+  if (query.isLoading) {
     return (
       <div className="flex justify-center py-6 text-sm text-desaturated-teal">
         Cargando resultados en vivo...
@@ -97,7 +127,7 @@ export default function PollChart({ pollId }: PollChartProps) {
     );
   }
 
-  if (isError) {
+  if (query.isError) {
     return (
       <div className="flex justify-center py-6 text-sm text-red-400">
         Error al cargar los resultados.
@@ -113,22 +143,22 @@ export default function PollChart({ pollId }: PollChartProps) {
     );
   }
 
-  const hasVotes = results.totalVotes > 0;
+  var hasVotes = results.totalVotes > 0;
 
   return (
     <div className="flex flex-col gap-6">
       {/* Header: título encuesta */}
-      <header className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold leading-tight text-off-white">
-          {results.pollTitle || "Resultados de la encuesta"}
-        </h2>
-        <p className="text-sm text-desaturated-teal">
-          Visualizá las respuestas en tiempo real.
-        </p>
-      </header>
+        <header className="flex flex-col gap-2">
+          <h2 className="text-2xl md:text-3xl font-bold leading-tight text-off-white">
+            {results.pollTitle || "Resultados de la encuesta"}
+         </h2>
+          <p className="text-sm md:text-base text-desaturated-teal">
+            Visualizá las respuestas en tiempo real.
+          </p>
+        </header>
 
       {/* Panel info general */}
-      <section className="rounded-lg border border-border-color bg-[#3F5F5F] px-4 py-3 text-sm text-off-white">
+<section className="rounded-xl border border-border-color bg-black/30 px-5 py-4 text-sm md:text-base text-off-white shadow-inner">
         {shareLink && (
           <p className="mb-2">
             <span className="font-semibold">Enlace para compartir:</span>{" "}
@@ -150,101 +180,148 @@ export default function PollChart({ pollId }: PollChartProps) {
       <div className="flex items-center gap-3">
         <button
           type="button"
-          onClick={() => setChartType(chartType === "bar" ? "pie" : "bar")}
+          onClick={function () {
+            setChartType(chartType === "bar" ? "pie" : "bar");
+          }}
           className="rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
         >
           Ver como: {chartType === "bar" ? "torta" : "histograma"}
         </button>
 
-      {/* Mostrar tipo activo */}
-        <span className="text-xs text-desaturated-teal">
-          {chartType === "bar" ? "Histograma" : "Torta"}
+        <span className="text-sm text-off-white">
+          Vista actual:{" "}
+          <span className="font-semibold">
+            {chartType === "bar" ? "Histograma" : "Torta"}
+          </span>
         </span>
       </div>
 
       {/* Caso sin votos */}
       {!hasVotes && (
-        <div className="rounded-lg border border-border-color px-4 py-6 text-center text-sm text-desaturated-teal">
+        <div className="rounded-lg border border-border-color px-4 py-6 text-center text-sm md:text-base text-desaturated-teal">
           Todavía no hay respuestas para esta encuesta.
         </div>
       )}
 
       {/* Gráficos por pregunta (solo si hay votos) */}
       {hasVotes &&
-        results.questions.map((q) => {
-          const questionTotal = q.options.reduce(
-            (acc, opt) => acc + opt.votes,
-            0
-          );
+        results.questions.map(function (q) {
+          var questionTotal = q.options.reduce(function (acc, opt) {
+            return acc + opt.votes;
+          }, 0);
 
           return (
             <section
               key={q.questionId}
-              className="rounded-lg border border-border-color bg-[#3F5F5F] p-4"
+              className="mt-2 rounded-xl border border-border-color bg-black/40 p-5 shadow-md"
             >
               <div className="mb-2 flex items-baseline justify-between gap-2">
-                <h3 className="text-base font-semibold text-off-white">
-                  {q.questionText}
-                </h3>
-                <span className="text-[11px] text-desaturated-teal">
-                  Votos en esta pregunta: {questionTotal}
-                </span>
+                <h3 className="text-base md:text-lg font-semibold text-off-white">
+  {q.questionText}
+</h3>
+<span className="text-xs md:text-sm text-desaturated-teal">
+  Votos en esta pregunta: {questionTotal}
+</span>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 mt-4">
+              <div className="mt-4 grid grid-cols-1 gap-4">
                 {chartType === "bar" && (
-                  <div className="h-64">
+                  <div className="h-72 rounded-lg bg-slate-950/60 px-3 py-3">
                     <Bar
-                       data={formatChartData(q)}
-                       options={{
-                          responsive: true,
-                          maintainAspectRatio: false,
-                           plugins: {
-                             legend: { display: false }, 
-                             title: {
-                                display: true,
-                                text: "Votos",
-                                font: {
-                                  size: 16,
-                                  weight: "bold",
-                                },
-                                padding: 10,
-                             }
+                      data={formatChartData(q)}
+                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: {
+                            display: false,
+                            labels: {
+                              color: "#F9FAFB",
+                              font: {
+                                size: 12,
+                              },
+                            },
                           },
-                          scales: {
-                             y: {
-                               beginAtZero: true,
-                               ticks: { stepSize: 1 },
-                             },
+                          tooltip: {
+                            bodyColor: "#F9FAFB",
+                            titleColor: "#F9FAFB",
+                            titleFont: {
+                              size: 14,
+                            },
+                            bodyFont: {
+                              size: 13,
+                            },
                           },
-                        }}
-                     />
-                  </div>
-                )}
-
-                {chartType === "pie" && (
-                  <div className="h-64 flex items-center justify-center">
-                    <Pie
-                       data={formatPieData(q)}
-                       options={{
-                          plugins: {
-                          legend: { position: "bottom" },
+                        },
+                        scales: {
+                          x: {
+                            ticks: {
+                              color: "#E5E7EB",
+                              font: {
+                                size: 11,
+                              },
+                            },
+                            grid: {
+                              color: "rgba(148,163,184,0.3)",
+                            },
                           },
-                       }}
+                          y: {
+                            ticks: {
+                              color: "#E5E7EB",
+                              font: {
+                                size: 11,
+                              },
+                            },
+                            grid: {
+                              color: "rgba(148,163,184,0.3)",
+                            },
+                            beginAtZero: true,
+                          },
+                        },
+                      }}
                     />
                   </div>
                 )}
 
+                {chartType === "pie" && (
+                  <div className="flex h-72 items-center justify-center rounded-lg bg-slate-950/60 px-3 py-3">
+                    <Pie
+                      data={formatPieData(q)}
+                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: {
+                            position: "bottom",
+                            labels: {
+                              color: "#E5E7EB",
+                              font: {
+                                size: 12,
+                              },
+                            },
+                          },
+                          tooltip: {
+                            bodyColor: "#F9FAFB",
+                            titleColor: "#F9FAFB",
+                            titleFont: {
+                              size: 14,
+                            },
+                            bodyFont: {
+                              size: 13,
+                            },
+                          },
+                        },
+                      }}
+                    />
+                  </div>
+                )}
               </div>
-
 
               {/* Resumen textual con porcentajes */}
               {questionTotal > 0 && (
-                <ul className="mt-4 space-y-1 text-xs text-desaturated-teal">
-                  {q.options.map((opt) => {
-                    const pct = Math.round(
-                      (opt.votes / questionTotal) * 100
-                    );
+                <ul className="mt-4 space-y-1 text-sm text-desaturated-teal">
+                  {q.options.map(function (opt) {
+                    var pct = Math.round((opt.votes / questionTotal) * 100);
 
                     return (
                       <li
@@ -271,7 +348,9 @@ export default function PollChart({ pollId }: PollChartProps) {
       <div className="mt-2 flex justify-end">
         <button
           type="button"
-          onClick={() => router.push(`/polls/${pollId}`)}
+          onClick={function () {
+            router.push("/polls/" + pollId);
+          }}
           className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
         >
           <span>Ir a la página de votación</span>

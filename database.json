@@ -504,6 +504,15 @@
       "voterIdentifier": "::1",
       "id": "b8b6c691-6d02-4198-b4f6-09b0f737ab15",
       "createdAt": "2025-11-21T18:28:50.243Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "68596400-9aa6-4dfe-b50d-03201018c6ad"
+      },
+      "voterIdentifier": "::1",
+      "id": "10e583e3-01bc-40d7-9c76-1bbb3573538c",
+      "createdAt": "2025-11-24T22:17:04.254Z"
     }
   ]
 }
