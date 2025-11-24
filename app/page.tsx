@@ -55,7 +55,7 @@ export default function HomePage() {
 
               {/* Sección Encuestas Creadas */}
               <section className="mt-4 flex flex-col gap-4">
-                <div className="flex items-center justify-between px-4">
+                {/* <div className="flex items-center justify-between px-4">
                   <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] text-off-white dark:text-off-white">
                     Encuestas Creadas
                   </h2>
@@ -71,7 +71,7 @@ export default function HomePage() {
                       </span>
                     </button>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex flex-col gap-3 px-1 sm:px-0">
                   <PollList />
