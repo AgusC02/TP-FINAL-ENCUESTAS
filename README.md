@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Poll.inc – Plataforma de Encuestas
 
-## Getting Started
+Poll.inc es una plataforma web para **crear, responder y visualizar encuestas** en tiempo real. Está desarrollada con Next.js, React y un stack moderno orientado a frontend.
 
-First, run the development server:
+---
+
+## 📝 Descripción breve
+
+La aplicación permite:
+
+- Crear encuestas con múltiples preguntas y opciones.
+- Compartir el enlace de votación.
+- Recibir respuestas anónimas.
+- Visualizar resultados en gráficos (histograma y torta), actualizados automáticamente.
+
+La persistencia se realiza sobre un archivo local `database.json`, adecuada para el contexto de Trabajo Práctico.
+
+---
+
+## ✅ Funcionalidades principales
+
+- **Crear encuestas**
+  - Definición de título.
+  - Alta de preguntas y opciones.
+
+- **Listado de encuestas**
+  - Vista de encuestas recientes.
+  - Acciones rápidas:
+    - 🗳️ Votar.
+    - 📊 Ver resultados.
+
+- **Responder encuestas**
+  - Formulario dinámico (una pregunta por bloque).
+  - Validación para que todas las preguntas sean respondidas.
+  - Envío de respuestas a la API.
+
+- **Visualización de resultados**
+  - Resultados en tiempo real mediante React Query (refetch periódico).
+  - Gráficos:
+    - Histograma (barras).
+    - Gráfico de torta.
+  - Detalle textual de votos y porcentajes por opción.
+  - Enlace para compartir la encuesta.
+
+---
+
+## 🧩 Stack tecnológico
+
+- **Framework y lenguaje**
+  - Next.js 16 (App Router).
+  - React 19.
+  - TypeScript.
+
+- **Estilos**
+  - Tailwind CSS 4.
+
+- **Gestión de datos**
+  - @tanstack/react-query (fetching, cache, refetch de resultados).
+  - axios (cliente HTTP).
+
+- **Formularios y validación**
+  - Formik (manejo de formularios).
+  - Yup (validación en la API de creación de encuestas).
+
+- **Gráficos**
+  - chart.js.
+  - react-chartjs-2.
+
+- **Persistencia**
+  - Archivo local `database.json`, gestionado por `app/lib/database.ts`.
+
+---
+
+## 🔧 Instalación y ejecución
+
+### Requisitos
+
+- Node.js (versión recomendada: 20.x o compatible con Next 16).
+- npm o pnpm.
+
+### Pasos
+
+1. Clonar el repositorio:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <URL_DEL_REPO>
+cd TP-FINAL-ENCUESTAS
 ```
+2. Instalar dependencias:
+```bash
+npm install
+# o
+pnpm install
+```
+3. Ejecutar en modo desarrollo:
+```bash
+npm run dev
+```
+4. Abrir en el navegador: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧾 Notas finales
+El proyecto está pensado como Trabajo Práctico, priorizando:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Claridad de código.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Documentación básica de decisiones técnicas.
 
-## Learn More
+Uso de un stack moderno y coherente.
 
-To learn more about Next.js, take a look at the following resources:
+La persistencia mediante database.json es adecuada para desarrollo local y demostraciones, pero no está pensada para entornos productivos.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El diseño y la arquitectura permiten extender fácilmente:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Nuevos tipos de preguntas.
 
-## Deploy on Vercel
+Métricas adicionales en los resultados.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Integración futura con una base de datos real o despliegue en la nube.
