@@ -339,6 +339,66 @@
         }
       ],
       "id": "8e489be5-3a73-4da4-80eb-3ff793b0c76a"
+    },
+    {
+      "title": "EncuestaTestRefresh",
+      "questions": [
+        {
+          "text": "Lorororororororor",
+          "options": [
+            {
+              "text": "Lorem",
+              "id": "a273970b-4a1b-4795-af20-61b73c268672"
+            },
+            {
+              "text": "Ipsum",
+              "id": "fa4335ab-76fe-470f-8bc2-cf4f3ef4af11"
+            }
+          ],
+          "id": "65a2cb20-189f-4400-bdc6-db47894bbfc7"
+        }
+      ],
+      "id": "dbe7d82d-d611-4b0d-a81b-e403ea0b6694"
+    },
+    {
+      "title": "TESTRefresh",
+      "questions": [
+        {
+          "text": "Aaaaaaaa",
+          "options": [
+            {
+              "text": "aa",
+              "id": "e72ec6bc-029a-4bc9-8573-79a7fa940e05"
+            },
+            {
+              "text": "bb",
+              "id": "7b7d4515-d0d9-41dc-8ea9-1d44f28a3965"
+            }
+          ],
+          "id": "b8928cbe-db58-4255-9342-2cca0b795d40"
+        }
+      ],
+      "id": "d0a1798d-e49a-412f-9274-edf03a9bfe4e"
+    },
+    {
+      "title": "EncuestaTest3",
+      "questions": [
+        {
+          "text": "Test3refresh",
+          "options": [
+            {
+              "text": "ref",
+              "id": "46a8e537-47d3-4be9-b47b-036512724c52"
+            },
+            {
+              "text": "resh",
+              "id": "a3691bff-3a43-4d48-8ac9-e4dd1762efdb"
+            }
+          ],
+          "id": "c5b4c328-6677-441f-80b1-38ef4d121b60"
+        }
+      ],
+      "id": "e7cd7cbe-483c-4b17-a2ca-9bbc9608c946"
     }
   ],
   "responses": [
@@ -459,6 +519,15 @@
       "voterIdentifier": "::1",
       "id": "923dcae1-baef-4250-90d5-4035b9ee863c",
       "createdAt": "2025-11-21T02:48:39.914Z"
+    },
+    {
+      "pollId": "e7cd7cbe-483c-4b17-a2ca-9bbc9608c946",
+      "answers": {
+        "c5b4c328-6677-441f-80b1-38ef4d121b60": "46a8e537-47d3-4be9-b47b-036512724c52"
+      },
+      "voterIdentifier": "::1",
+      "id": "8392a55f-edb4-4c5e-aa9e-ca463e028fd4",
+      "createdAt": "2025-11-24T21:39:07.771Z"
     }
   ]
 }
