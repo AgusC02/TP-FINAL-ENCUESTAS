@@ -1,26 +1,97 @@
+/* 1) Todas las @import primero */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 @import "tailwindcss";
 
+/* 2) Después los plugins */
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+/* 3) Recién acá el resto de reglas */
+
+/* Paleta base Poll.inc (brutalista oscuro) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colores base Poll.inc */
+  --background-light: #2f4f4f;
+  --background-dark: #2f4f4f;
+  --foreground: #f8f8f8;
+
+  --primary: #cc5500;
+  --primary-foreground: #f8f8f8;
+
+  --desaturated-teal: #6a8a8a;
+
+  /* Compatibilidad con cosas viejas si las hubiera */
+  --background: var(--background-light);
+  --foreground-legacy: #171717;
 }
 
+/* Tokens para Tailwind (clases tipo bg-*, text-*, font-*) */
 @theme inline {
-  --color-background: var(--background);
+  /* Compatibilidad genérica */
+  --color-background: var(--background-light);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Nombres que ya usamos en las clases */
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+  --color-off-white: var(--foreground);
+  --color-desaturated-teal: var(--desaturated-teal);
+  --color-primary: var(--primary);
+
+  /* Tipografía principal Poll.inc */
+  --font-display: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  /* Para font-sans si algún día la usás */
+  --font-sans: var(--font-display);
 }
 
+/* Modo oscuro (por ahora usamos el mismo look brutalista) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-light: #2f4f4f;
+    --background-dark: #2f4f4f;
+    --foreground: #f8f8f8;
   }
 }
 
+/* Estilos base del body */
 body {
-  background: var(--background);
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--background-light);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display);
+}
+
+/* Iconos de Material Symbols */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.25rem; /* ~20px */
+  line-height: 1;
+  display: inline-block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+/* Bordes finos específicos para las opciones de encuesta */
+.poll-option {
+  border-width: 1px !important;
+}
+
+/* Radio más fino */
+.poll-radio {
+  border-width: 1px !important;
 }

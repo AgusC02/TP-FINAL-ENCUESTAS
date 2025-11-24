@@ -73,4 +73,4 @@ export function useGetAllPolls() {
     queryKey: ["polls"],
     queryFn: pollService.getAllPolls,
   });
-}
+}[];
