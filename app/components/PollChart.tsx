@@ -1,89 +1,14 @@
-/* "use client"; // Grafico de barras
-import { Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { useGetPollResults } from '@/app/hooks/usePoll';
-import type { PollResults } from '@/app/api/polls/[id]/results/route';
-import { useRouter } from 'next/navigation';
-
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-// Genera colores aleatorios para las barras
-const generateColors = (numColors: number) => {
-  const colors = [];
-  for (let i = 0; i < numColors; i++) {
-    colors.push(`hsla(${Math.floor(Math.random() * 360)}, 70%, 50%, 0.6)`);
-  }
-  return colors;
-};
-
-const formatChartData = (question: PollResults['questions'][0]) => {
-  return {
-    labels: question.options.map(o => o.optionText),
-    datasets: [
-      {
-        label: 'Votos',
-        data: question.options.map(o => o.votes),
-        backgroundColor: generateColors(question.options.length),
-      },
-    ],
-  };
-};
-
-export default function PollChart({ pollId }: { pollId: string }) {
-  const router = useRouter();
-  const resultsQuery = useGetPollResults(pollId);
-  
-  // Genera el link para compartir en el cliente
-  const shareLink = typeof window !== 'undefined' ? `${window.location.origin}/polls/${pollId}` : '';
-
-  if (resultsQuery.isLoading) return <p style={{textAlign:'center'}}>Cargando resultados en vivo...</p>;
-  if (resultsQuery.isError) return <p style={{color: 'red', textAlign:'center'}}>Error al cargar.</p>;
-  if (!resultsQuery.data) return <p style={{textAlign:'center'}}>Datos no encontrados.</p>;
-
-  const { data: results } = resultsQuery;
-
-  return (
-    <div style={{ maxWidth: '800px', margin: 'auto' }}>
-      <h1 style={{textAlign:'center'}}>{results.pollTitle}</h1>
-      <div style={{ background: '#e8f5e9', padding: '15px', borderRadius: '5px', marginBottom: '20px', border: '1px solid #c8e6c9' }}>
-        <p style={{margin: '5px 0'}}><strong>Enlace para compartir:</strong> <a href={shareLink} style={{color:'#0070f3'}}>{shareLink}</a></p>
-        <p style={{margin: '5px 0'}}><strong>Total de Votos:</strong> {results.totalVotes}</p>
-      </div>
-
-      {results.questions.map(q => (
-        <div key={q.questionId} style={{ background: 'white', padding: '20px', borderRadius: '8px', marginBottom: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3>{q.questionText}</h3>
-          <Bar
-            data={formatChartData(q)}
-            options={{
-              responsive: true,
-              plugins: { legend: { display: false } },
-              scales: { y: { ticks: { stepSize: 1 } } }
-            }}
-          />
-        </div>
-      ))}
-      <button 
-        onClick={() => router.push(`/polls/${pollId}`)} 
-        style={{ padding: '10px 15px', background: '#333', color: 'white', border: 'none', cursor: 'pointer', borderRadius: '4px' }}>
-        Ir a la página de votación
-      </button>
-    </div>
-  );
-} */
-
 // app/components/PollChart.tsx
 "use client";
 
 import { Bar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
+import { ArcElement } from "chart.js";
+import { useState } from "react";
+
+ChartJS.register(ArcElement);
+
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -103,32 +28,61 @@ type PollChartProps = {
   pollId: string;
 };
 
-// Colores deterministas (no cambian en cada render)
-function generateColors(numColors: number) {
-  const colors: string[] = [];
-  for (let i = 0; i < numColors; i++) {
-    const hue = Math.floor((360 / Math.max(numColors, 1)) * i);
-    colors.push(`hsla(${hue}, 70%, 50%, 0.6)`);
-  }
-  return colors;
-}
 
+
+// HISTOGRAMA -> Paleta fija de colores con bordes blancos
 function formatChartData(question: PollResults["questions"][0]) {
+  const colors = [
+    "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
+    "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab",
+    "#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600",
+    "#2f4b7c", "#a05195", "#d45087", "#f95d6a", "#ff7c43"
+  ];
+
   return {
-    labels: question.options.map((o) => o.optionText),
+    labels: question.options.map(o => o.optionText),
     datasets: [
       {
         label: "Votos",
-        data: question.options.map((o) => o.votes),
-        backgroundColor: generateColors(question.options.length),
+        data: question.options.map(o => o.votes),
+        backgroundColor: question.options.map((_, i) => colors[i % colors.length]),
+        borderColor: "#ffffff",
+        borderWidth: 1.5,
       },
     ],
   };
 }
 
+// Torta -> Paleta fija de colores con bordes blancos
+
+function formatPieData(question: PollResults["questions"][0]) {
+  const colors = [
+    "#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f",
+    "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab",
+    "#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600",
+    "#2f4b7c", "#a05195", "#d45087", "#f95d6a", "#ff7c43"
+  ];
+
+  return {
+    labels: question.options.map(o => o.optionText),
+    datasets: [
+      {
+        data: question.options.map(o => o.votes),
+        backgroundColor: question.options.map((_, i) => colors[i % colors.length]),
+        borderWidth: 1,
+        borderColor: "#fff",
+      },
+    ],
+  };
+}
+
+
 export default function PollChart({ pollId }: PollChartProps) {
   const router = useRouter();
   const { data: results, isLoading, isError } = useGetPollResults(pollId);
+
+  // Estado para cambiar entre histograma y torta
+  const [chartType, setChartType] = useState<"bar" | "pie">("bar");
 
   const shareLink =
     typeof window !== "undefined"
@@ -192,6 +146,22 @@ export default function PollChart({ pollId }: PollChartProps) {
         </p>
       </section>
 
+      {/* Control para alternar tipo de gráfico */}
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={() => setChartType(chartType === "bar" ? "pie" : "bar")}
+          className="rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+        >
+          Ver como: {chartType === "bar" ? "torta" : "histograma"}
+        </button>
+
+      {/* Mostrar tipo activo */}
+        <span className="text-xs text-desaturated-teal">
+          {chartType === "bar" ? "Histograma" : "Torta"}
+        </span>
+      </div>
+
       {/* Caso sin votos */}
       {!hasVotes && (
         <div className="rounded-lg border border-border-color px-4 py-6 text-center text-sm text-desaturated-teal">
@@ -221,34 +191,52 @@ export default function PollChart({ pollId }: PollChartProps) {
                 </span>
               </div>
 
-              <div className="h-64">
-                <Bar
-                  data={formatChartData(q)}
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                      legend: { display: false },
-                      tooltip: {
-                        callbacks: {
-                          label: (ctx) => {
-                            const votes = ctx.parsed.y || 0;
-                            return `Votos: ${votes}`;
+              <div className="grid grid-cols-1 gap-4 mt-4">
+                {chartType === "bar" && (
+                  <div className="h-64">
+                    <Bar
+                       data={formatChartData(q)}
+                       options={{
+                          responsive: true,
+                          maintainAspectRatio: false,
+                           plugins: {
+                             legend: { display: false }, 
+                             title: {
+                                display: true,
+                                text: "Votos",
+                                font: {
+                                  size: 16,
+                                  weight: "bold",
+                                },
+                                padding: 10,
+                             }
                           },
-                        },
-                      },
-                    },
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                        ticks: {
-                          stepSize: 1,
-                        },
-                      },
-                    },
-                  }}
-                />
+                          scales: {
+                             y: {
+                               beginAtZero: true,
+                               ticks: { stepSize: 1 },
+                             },
+                          },
+                        }}
+                     />
+                  </div>
+                )}
+
+                {chartType === "pie" && (
+                  <div className="h-64 flex items-center justify-center">
+                    <Pie
+                       data={formatPieData(q)}
+                       options={{
+                          plugins: {
+                          legend: { position: "bottom" },
+                          },
+                       }}
+                    />
+                  </div>
+                )}
+
               </div>
+
 
               {/* Resumen textual con porcentajes */}
               {questionTotal > 0 && (

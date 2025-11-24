@@ -259,146 +259,48 @@
       "id": "9beb1a26-81d8-4069-9519-f400ae900c07"
     },
     {
-      "title": "Lorem ipsum?",
+      "title": "Testeo de interfaz",
       "questions": [
         {
-          "text": "Jesus is King",
-          "options": [
-            {
-              "text": "Lorem",
-              "id": "dfb4eb1f-e9fa-4654-83a8-a87ccfd5bf4b"
-            },
-            {
-              "text": "Ipsum",
-              "id": "3aa90103-2714-4ae8-90a6-8abbb9f85886"
-            }
-          ],
-          "id": "9beef0a0-59bf-4fbf-9263-528f5e9ee6d7"
-        },
-        {
-          "text": "Test123",
-          "options": [
-            {
-              "text": "123",
-              "id": "8860c293-9706-49cf-9275-41690d1f6e26"
-            },
-            {
-              "text": "321",
-              "id": "e857693c-5a83-42d8-ba5c-406a3c7a3150"
-            },
-            {
-              "text": "213",
-              "id": "e4ac051b-8f8a-4509-968c-dc1db80c46a6"
-            },
-            {
-              "text": "231",
-              "id": "7c00aa7a-344d-4aa3-8582-ce431e63343f"
-            }
-          ],
-          "id": "4944d5d4-63b5-48b7-9d67-d83ccf5aff0a"
-        }
-      ],
-      "id": "109b6ef2-a453-47ab-91d1-507d1201ccf1"
-    },
-    {
-      "title": "testest",
-      "questions": [
-        {
-          "text": "testtestest",
+          "text": "Hola ?",
           "options": [
             {
               "text": "1",
-              "id": "834a2f76-81f4-48e9-a89b-9eaaef0788a0"
+              "id": "68596400-9aa6-4dfe-b50d-03201018c6ad"
             },
             {
               "text": "2",
-              "id": "9488ae94-9f16-463a-859a-473b74353869"
-            }
-          ],
-          "id": "f2590578-0f89-4936-b8dc-9876c09da3b8"
-        }
-      ],
-      "id": "0d0e79fe-98ea-45c4-b222-9ba64002c59f"
-    },
-    {
-      "title": "asdadsadasdadsads",
-      "questions": [
-        {
-          "text": "asdasdadasd",
-          "options": [
-            {
-              "text": "asdasdadasd",
-              "id": "2873171c-65d3-4db3-8be2-272f3c01b0f1"
+              "id": "c06276dd-8e6d-4ab7-8f12-4d739c224107"
             },
             {
-              "text": "asdasdadasdsad",
-              "id": "d574a9c1-6c94-438e-900a-6bf2306a8bcc"
-            }
-          ],
-          "id": "53666559-bd2f-4201-8134-dcd8a14d86a9"
-        }
-      ],
-      "id": "8e489be5-3a73-4da4-80eb-3ff793b0c76a"
-    },
-    {
-      "title": "EncuestaTestRefresh",
-      "questions": [
-        {
-          "text": "Lorororororororor",
-          "options": [
-            {
-              "text": "Lorem",
-              "id": "a273970b-4a1b-4795-af20-61b73c268672"
+              "text": "3",
+              "id": "a28ecc09-3119-479b-a7df-bd3b6a5e2d53"
             },
             {
-              "text": "Ipsum",
-              "id": "fa4335ab-76fe-470f-8bc2-cf4f3ef4af11"
-            }
-          ],
-          "id": "65a2cb20-189f-4400-bdc6-db47894bbfc7"
-        }
-      ],
-      "id": "dbe7d82d-d611-4b0d-a81b-e403ea0b6694"
-    },
-    {
-      "title": "TESTRefresh",
-      "questions": [
-        {
-          "text": "Aaaaaaaa",
-          "options": [
-            {
-              "text": "aa",
-              "id": "e72ec6bc-029a-4bc9-8573-79a7fa940e05"
+              "text": "4",
+              "id": "adc30ea8-aa8d-406d-a12b-d5e8b8389b3f"
             },
             {
-              "text": "bb",
-              "id": "7b7d4515-d0d9-41dc-8ea9-1d44f28a3965"
-            }
-          ],
-          "id": "b8928cbe-db58-4255-9342-2cca0b795d40"
-        }
-      ],
-      "id": "d0a1798d-e49a-412f-9274-edf03a9bfe4e"
-    },
-    {
-      "title": "EncuestaTest3",
-      "questions": [
-        {
-          "text": "Test3refresh",
-          "options": [
-            {
-              "text": "ref",
-              "id": "46a8e537-47d3-4be9-b47b-036512724c52"
+              "text": "5",
+              "id": "77de78c6-0f23-4b4f-9fdd-4e7be7ca49ae"
             },
             {
-              "text": "resh",
-              "id": "a3691bff-3a43-4d48-8ac9-e4dd1762efdb"
+              "text": "6",
+              "id": "f47cf73f-bafb-4ab6-bf2a-33f030c6cca0"
+            },
+            {
+              "text": "7",
+              "id": "502b8099-f88a-4710-840e-74e05b54914a"
+            },
+            {
+              "text": "8",
+              "id": "2cbb1ab7-2c08-4bd7-bc0a-93fd1208121f"
             }
           ],
-          "id": "c5b4c328-6677-441f-80b1-38ef4d121b60"
+          "id": "6854de97-daa3-40af-adc7-d765fd19abb1"
         }
       ],
-      "id": "e7cd7cbe-483c-4b17-a2ca-9bbc9608c946"
+      "id": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2"
     }
   ],
   "responses": [
@@ -511,23 +413,97 @@
       "createdAt": "2025-11-20T06:02:52.887Z"
     },
     {
-      "pollId": "109b6ef2-a453-47ab-91d1-507d1201ccf1",
+      "pollId": "9beb1a26-81d8-4069-9519-f400ae900c07",
       "answers": {
-        "9beef0a0-59bf-4fbf-9263-528f5e9ee6d7": "dfb4eb1f-e9fa-4654-83a8-a87ccfd5bf4b",
-        "4944d5d4-63b5-48b7-9d67-d83ccf5aff0a": "e857693c-5a83-42d8-ba5c-406a3c7a3150"
+        "ac5a7445-fe88-4644-9ea6-65bf714a6633": "ad04c5a6-54cc-4a3c-9c55-08bd716204a4",
+        "0538c224-7db3-44e2-8029-e23d7250472a": "213fa0a9-4b79-410b-9538-eb1c60a46e77",
+        "44ade76b-45a4-47ba-a858-2896eeac786c": "5306425a-c3b5-41ca-a9f6-5ef93075b216",
+        "8b9c39e5-5efa-467c-86fa-3744f9806bf8": "edeeb28d-3b03-4221-90b2-bfff81d7f9e5",
+        "e310db5a-1455-4907-a321-a62cb9d2f156": "f5318bcb-5e42-4840-b433-87fff675adc8"
       },
       "voterIdentifier": "::1",
-      "id": "923dcae1-baef-4250-90d5-4035b9ee863c",
-      "createdAt": "2025-11-21T02:48:39.914Z"
+      "id": "306f3290-8cc5-4fc1-974d-3c67d0196248",
+      "createdAt": "2025-11-21T17:54:32.953Z"
     },
     {
-      "pollId": "e7cd7cbe-483c-4b17-a2ca-9bbc9608c946",
+      "pollId": "9beb1a26-81d8-4069-9519-f400ae900c07",
       "answers": {
-        "c5b4c328-6677-441f-80b1-38ef4d121b60": "46a8e537-47d3-4be9-b47b-036512724c52"
+        "ac5a7445-fe88-4644-9ea6-65bf714a6633": "099e4213-47db-4c6e-b03f-2bfe4d905627",
+        "0538c224-7db3-44e2-8029-e23d7250472a": "1609f793-faaf-4efd-a07a-59f5e6cc0331",
+        "44ade76b-45a4-47ba-a858-2896eeac786c": "5306425a-c3b5-41ca-a9f6-5ef93075b216",
+        "8b9c39e5-5efa-467c-86fa-3744f9806bf8": "edeeb28d-3b03-4221-90b2-bfff81d7f9e5",
+        "e310db5a-1455-4907-a321-a62cb9d2f156": "f5318bcb-5e42-4840-b433-87fff675adc8"
       },
       "voterIdentifier": "::1",
-      "id": "8392a55f-edb4-4c5e-aa9e-ca463e028fd4",
-      "createdAt": "2025-11-24T21:39:07.771Z"
+      "id": "60e6341b-b9fe-4a1c-b660-2496fbbafa92",
+      "createdAt": "2025-11-21T17:54:52.188Z"
+    },
+    {
+      "pollId": "9beb1a26-81d8-4069-9519-f400ae900c07",
+      "answers": {
+        "ac5a7445-fe88-4644-9ea6-65bf714a6633": "3f94edbd-4626-4f3d-b2ca-b8f765410a45",
+        "0538c224-7db3-44e2-8029-e23d7250472a": "1609f793-faaf-4efd-a07a-59f5e6cc0331",
+        "44ade76b-45a4-47ba-a858-2896eeac786c": "41e41134-7389-491a-b047-2fc403a27184",
+        "8b9c39e5-5efa-467c-86fa-3744f9806bf8": "9d7d4ead-8016-4752-9dad-7720ff69480e",
+        "e310db5a-1455-4907-a321-a62cb9d2f156": "a20fa330-68fd-49c0-ab73-3984effd168e"
+      },
+      "voterIdentifier": "::1",
+      "id": "d460fde9-0d65-48c6-a884-e58c4e617de6",
+      "createdAt": "2025-11-21T17:55:07.399Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "2cbb1ab7-2c08-4bd7-bc0a-93fd1208121f"
+      },
+      "voterIdentifier": "::1",
+      "id": "1f2ab021-0c90-4f46-8750-f261c0f00eb8",
+      "createdAt": "2025-11-21T18:28:31.098Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "c06276dd-8e6d-4ab7-8f12-4d739c224107"
+      },
+      "voterIdentifier": "::1",
+      "id": "d7caf281-c2c3-47f6-81e8-a8f751e20b83",
+      "createdAt": "2025-11-21T18:28:38.911Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "68596400-9aa6-4dfe-b50d-03201018c6ad"
+      },
+      "voterIdentifier": "::1",
+      "id": "1f87c2d4-09fe-4a80-a01e-28a9597dc883",
+      "createdAt": "2025-11-21T18:28:41.569Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "a28ecc09-3119-479b-a7df-bd3b6a5e2d53"
+      },
+      "voterIdentifier": "::1",
+      "id": "3b824157-42ec-4b35-93bb-52b92bb1e047",
+      "createdAt": "2025-11-21T18:28:44.037Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "adc30ea8-aa8d-406d-a12b-d5e8b8389b3f"
+      },
+      "voterIdentifier": "::1",
+      "id": "2bb1b7a6-01c3-4f41-b486-641c7b429a76",
+      "createdAt": "2025-11-21T18:28:46.646Z"
+    },
+    {
+      "pollId": "5ee56b1b-57eb-4b94-8c70-f9d3c44e31d2",
+      "answers": {
+        "6854de97-daa3-40af-adc7-d765fd19abb1": "77de78c6-0f23-4b4f-9fdd-4e7be7ca49ae"
+      },
+      "voterIdentifier": "::1",
+      "id": "b8b6c691-6d02-4198-b4f6-09b0f737ab15",
+      "createdAt": "2025-11-21T18:28:50.243Z"
     }
   ]
 }
