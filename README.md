@@ -2,10 +2,6 @@
 
 Poll.inc es una plataforma web para **crear, responder y visualizar encuestas** en tiempo real. Está desarrollada con Next.js, React y un stack moderno orientado a frontend.
 
----
-
-## 📝 Descripción breve
-
 La aplicación permite:
 
 - Crear encuestas con múltiples preguntas y opciones.
