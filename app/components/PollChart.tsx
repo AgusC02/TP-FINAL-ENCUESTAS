@@ -109,10 +109,8 @@ export default function PollChart(props: PollChartProps) {
   var query = useGetPollResults(pollId);
   var results = query.data;
 
-  var chartTypeInitial: "bar" | "pie" = "bar";
-  var _a = useState(chartTypeInitial),
-    chartType = _a[0],
-    setChartType = _a[1];
+  const [chartType, setChartType] = useState<"bar" | "pie">("bar");
+
 
   var shareLink =
     typeof window !== "undefined"
